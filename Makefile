@@ -6,7 +6,7 @@
 #    By: grezette <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 10:19:29 by grezette          #+#    #+#              #
-#    Updated: 2019/11/10 19:03:40 by grezette         ###   ########.fr        #
+#    Updated: 2020/01/26 13:41:25 by grezette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,14 @@ SRCS_BONUS	=	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
 
+SRCS_EVERY	=	get_next_line.c \
+
 
 OBJS		=	${SRCS:.c=.o}
 
 OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
+
+OBJS_EVERY	=	${SRCS_EVERY:.c=.o}
 
 LIB_PATH	=	-L. -lft
 
@@ -76,11 +80,14 @@ all:			${NAME}
 bonus:			${OBJS} ${OBJS_BONUS}
 			ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
 
-.c.o:			${SRCS} ${SRCS_BONUS}
+every:			${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
+			ar rc ${NAME} ${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
+
+.c.o:			${SRCS} ${SRCS_BONUS} ${SRCS_EVERY}
 			${CC} ${FLAGS} ${INC_PATH} -c $<  -o ${<:.c=.o}
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS}
+			rm -f ${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
 
 fclean:			clean
 			rm -f ${NAME}
