@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+.SUFFIXES:
+
 NAME		=	libft.a
 
 SRCS		=	ft_memset.c \
@@ -59,37 +61,36 @@ SRCS_BONUS	=	ft_lstnew.c \
 
 SRCS_EVERY	=	get_next_line.c \
 
+OBJS		=	$(SRCS:.c=.o)
 
-OBJS		=	${SRCS:.c=.o}
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-OBJS_BONUS	=	${SRCS_BONUS:.c=.o}
-
-OBJS_EVERY	=	${SRCS_EVERY:.c=.o}
+OBJS_EVERY	=	$(SRCS_EVERY:.c=.o)
 
 LIB_PATH	=	-L. -lft
 
-CC		=	gcc
+CC			=	gcc
 
 FLAGS		=	-Wall -Wextra -Werror
 
-${NAME}:		${OBJS}
-			ar rc ${NAME} ${OBJS}
+$(NAME):		$(OBJS)
+			ar rc $(NAME) $^
 
-all:			${NAME}
+all:			$(NAME)
 
-bonus:			${OBJS} ${OBJS_BONUS}
-			ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
+bonus:			$(OBJS) $(OBJS_BONUS)
+			ar rc $(NAME) $^
 
-every:			${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
-			ar rc ${NAME} ${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
+every:			$(OBJS) $(OBJS_BONUS) $(OBJS_EVERY)
+			ar rc $(NAME) $^
 
-.c.o:			${SRCS} ${SRCS_BONUS} ${SRCS_EVERY}
-			${CC} ${FLAGS} ${INC_PATH} -c $<  -o ${<:.c=.o}
+%.o:			%.c
+			$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-			rm -f ${OBJS} ${OBJS_BONUS} ${OBJS_EVERY}
+			rm -f $(OBJS) $(OBJS_BONUS) $(OBJS_EVERY)
 
 fclean:			clean
-			rm -f ${NAME}
+			rm -f $(NAME)
 
 re:			fclean all
