@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
 
 static int		ft_get_that_line(char **line, char *buff, int fctr, int len)
 {
@@ -31,7 +31,8 @@ static int		ft_get_that_line(char **line, char *buff, int fctr, int len)
 	i = (i < 0) ? 0 : i;
 	while (++j < len)
 		(*line)[i + j] = buff[j];
-	(*line)[i + (j++)] = 0;
+	(*line)[i + j] = 0;
+	j = (buff[j]) ? j + 1 : j;
 	i = 0;
 	while (buff[j])
 		buff[i++] = buff[j++];
@@ -49,7 +50,7 @@ int				get_next_line(int fd, char **line)
 
 	fctr = 0;
 	ret = 1;
-	if (!((*line = NULL)) && (BUFFER_SIZE < 1 || fd < 0))
+	if (!(*line = NULL) && (BUFFER_SIZE < 1 || read(fd, buff, 0)))
 		return (-1);
 	while (ret)
 	{
