@@ -6,7 +6,7 @@
 #    By: grezette <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 10:19:29 by grezette          #+#    #+#              #
-#    Updated: 2020/01/26 13:41:25 by grezette         ###   ########.fr        #
+#    Updated: 2020/07/20 17:14:30 by grezette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		=	ft_memset.c \
 				ft_memchr.c \
 				ft_memcmp.c \
 				ft_strlen.c \
+				ft_swap.c \
 				ft_isalpha.c \
 				ft_isdigit.c \
 				ft_isalnum.c \
@@ -60,6 +61,12 @@ SRCS_BONUS	=	ft_lstnew.c \
 				ft_lstmap.c \
 
 SRCS_EVERY	=	get_next_line.c \
+				ft_power.c \
+				ft_atof.c \
+				ft_square_strlen.c \
+				ft_square_strjoin.c \
+				ft_square_free.c \
+				ft_isspace.c \
 
 OBJS		=	$(SRCS:.c=.o)
 

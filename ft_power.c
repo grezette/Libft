@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grezette <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 12:33:15 by grezette          #+#    #+#             */
-/*   Updated: 2019/11/10 17:02:41 by grezette         ###   ########.fr       */
+/*   Created: 2020/02/15 19:35:21 by grezette          #+#    #+#             */
+/*   Updated: 2020/02/15 19:35:22 by grezette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+float	ft_power(float nb, int power)
 {
-	char	*str;
-	int		i;
+	float ret;
 
-	i = -1;
-	if (!(str = (char *)malloc(sizeof(*str) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	while (s1[++i])
-		str[i] = s1[i];
-	str[i] = 0;
-	return (str);
+	ret = nb;
+	if (!(power))
+		return (1);
+	else if (power > 0)
+		while (power--)
+			ret *= nb;
+	else
+		while (power++)
+			ret /= nb;
+	return (ret);
 }

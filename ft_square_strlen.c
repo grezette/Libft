@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_square_strlen.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grezette <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 12:33:15 by grezette          #+#    #+#             */
-/*   Updated: 2019/11/10 17:02:41 by grezette         ###   ########.fr       */
+/*   Created: 2020/07/19 14:58:22 by grezette          #+#    #+#             */
+/*   Updated: 2020/07/19 14:58:24 by grezette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+size_t	ft_square_strlen(char **str)
 {
-	char	*str;
-	int		i;
+	int i;
 
-	i = -1;
-	if (!(str = (char *)malloc(sizeof(*str) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	while (s1[++i])
-		str[i] = s1[i];
-	str[i] = 0;
-	return (str);
+	i = 0;
+	if (str)
+		while (str[i])
+			i++;
+	return (i);
 }

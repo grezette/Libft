@@ -6,7 +6,7 @@
 /*   By: grezette <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 10:20:12 by grezette          #+#    #+#             */
-/*   Updated: 2020/01/26 13:43:41 by grezette         ###   ########.fr       */
+/*   Updated: 2020/07/20 17:16:08 by grezette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <string.h>
 
 # ifndef BUFFER_SIZE
@@ -32,6 +33,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
+void				ft_swap(void *ptr_one, void *ptr_two);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_calloc(size_t count, size_t size);
@@ -52,12 +54,15 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 
 char				**ft_split(char const *s, char c);
+char				**ft_square_strjoin(char **tab, char *str);
+char				**ft_square_free(char **str);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+int					ft_isspace(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
@@ -65,6 +70,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 size_t				ft_strlen(const char *s);
+size_t				ft_square_strlen(char **s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
@@ -80,5 +86,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 
 int					get_next_line(int fd, char **line);
+float				ft_power(float nb, int power);
+float				ft_atof(char *str);
 
 #endif

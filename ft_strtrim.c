@@ -37,7 +37,7 @@ static int	trim_len(char const *s1, char const *set)
 		begin++;
 	while (!(is_set(s1[end], set)) && end > 0)
 		end--;
-	return (end - begin);
+	return (end - begin + 1);
 }
 
 char		*ft_strtrim(char const *s1, char const *set)

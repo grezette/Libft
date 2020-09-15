@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grezette <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 12:33:15 by grezette          #+#    #+#             */
-/*   Updated: 2019/11/10 17:02:41 by grezette         ###   ########.fr       */
+/*   Created: 2020/09/11 15:42:10 by grezette          #+#    #+#             */
+/*   Updated: 2020/09/11 15:42:12 by grezette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_swap(void *ptr_one, void *ptr_two)
 {
-	char	*str;
-	int		i;
+	void *tmp;
 
-	i = -1;
-	if (!(str = (char *)malloc(sizeof(*str) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	while (s1[++i])
-		str[i] = s1[i];
-	str[i] = 0;
-	return (str);
+	tmp = ptr_one;
+	ptr_one = ptr_two;
+	ptr_two = tmp;
 }
