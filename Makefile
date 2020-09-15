@@ -67,6 +67,11 @@ SRCS_EVERY	=	get_next_line.c \
 				ft_square_strjoin.c \
 				ft_square_free.c \
 				ft_isspace.c \
+				ft_itoa_base.c \
+				./ft_printf/ft_printf.c \
+				./ft_printf/ft_pars_flag.c \
+				./ft_printf/ft_converters.c \
+				./ft_printf/ft_conv_diuxx.c \
 
 OBJS		=	$(SRCS:.c=.o)
 
